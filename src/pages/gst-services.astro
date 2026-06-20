@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ConsultationCTA from '../components/ConsultationCTA.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { SEO } from '../data/business';
+import { gstServices } from '../data/services';
+
+const sectionIcons: Record<string, string> = {
+  'registration-maintenance': `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>`,
+  'periodic-compliance': `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`,
+  'audit-health': `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>`,
+  'specialised-gst': `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+};
+---
+
+<BaseLayout
+  title={SEO.gst.title}
+  description={SEO.gst.description}
+  canonicalPath="/gst-services/"
+>
+  <Breadcrumbs items={[{ label: 'GST Services' }]} />
+
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-navy to-blue py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
+        {gstServices.title}
+      </h1>
+      <p class="text-lg text-blue-light/90 max-w-3xl leading-relaxed">
+        {gstServices.intro}
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Sections -->
+  <section class="py-12 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-12 lg:space-y-16">
+        {gstServices.sections.map((section, idx) => (
+          <div id={section.id} class="scroll-reveal">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 bg-blue-light rounded-xl flex items-center justify-center text-blue shrink-0">
+                <Fragment set:html={sectionIcons[section.id] || sectionIcons['registration-maintenance']} />
+              </div>
+              <h2 class="text-xl sm:text-2xl font-bold text-navy">{section.heading}</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 ml-0 lg:ml-16">
+              {section.items.map((item) => (
+                <div class="flex items-start gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+                  <svg class="w-5 h-5 text-success mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span class="text-sm text-gray-700">{item.title}</span>
+                </div>
+              ))}
+            </div>
+            {idx < gstServices.sections.length - 1 && (
+              <hr class="mt-12 border-gray-200" />
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Disclaimer -->
+      {gstServices.disclaimer && (
+        <div class="mt-12 p-5 bg-amber-50 border border-amber-200 rounded-xl scroll-reveal">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-amber-600 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <p class="text-sm text-amber-800">{gstServices.disclaimer}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Related services links -->
+  <section class="py-10 bg-bg-soft">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
+      <h2 class="text-xl font-bold text-navy mb-4">Explore Related Services</h2>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/income-tax-services/" class="inline-flex items-center gap-2 text-blue font-medium hover:underline">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          Income Tax Services
+        </a>
+        <a href="/business-advisory-services/" class="inline-flex items-center gap-2 text-blue font-medium hover:underline">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          Business & Advisory Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <ConsultationCTA />
+  <WhatsAppButton />
+</BaseLayout>

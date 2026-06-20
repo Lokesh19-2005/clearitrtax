@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BUSINESS } from '../data/business';
+---
+
+<BaseLayout
+  title="Page Not Found — Clear ITR Tax"
+  description="The page you are looking for could not be found. Visit Clear ITR Tax for Income Tax, GST, and business advisory services."
+  canonicalPath="/404"
+>
+  <section class="py-20 lg:py-32">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="w-20 h-20 bg-blue-light rounded-2xl flex items-center justify-center text-blue mx-auto mb-6">
+        <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-navy mb-4">404</h1>
+      <p class="text-xl text-gray-600 mb-2">Page not found</p>
+      <p class="text-gray-500 mb-8 max-w-md mx-auto">
+        The page you are looking for may have been moved or does not exist. Let us help you find what you need.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-blue transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Go to Home
+        </a>
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-navy text-navy font-semibold rounded-lg hover:bg-navy hover:text-white transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+      <p class="text-sm text-gray-400 mt-8">
+        Need help? Call
+        <a href={BUSINESS.phoneHref} class="text-blue hover:underline">{BUSINESS.phone}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

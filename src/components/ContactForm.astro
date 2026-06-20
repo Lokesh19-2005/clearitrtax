@@ -1,0 +1,185 @@
+---
+import { BUSINESS } from '../data/business';
+
+const services = [
+  'Income Tax Return Filing',
+  'GST Registration & Returns',
+  'Tax Planning & Advisory',
+  'Business Registration',
+  'Accounting & Bookkeeping',
+  'NRI Taxation',
+  'Tax Notice Assistance',
+  'Other',
+];
+---
+
+<form
+  id="enquiry-form"
+  class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8"
+  novalidate
+>
+  <h3 class="text-xl font-bold text-navy mb-1">Appointment Enquiry</h3>
+  <p class="text-sm text-gray-500 mb-6">Fill in your details and we will get back to you.</p>
+
+  <div class="space-y-4">
+    <!-- Name -->
+    <div>
+      <label for="enquiry-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500" aria-hidden="true">*</span></label>
+      <input
+        type="text"
+        id="enquiry-name"
+        name="name"
+        required
+        autocomplete="name"
+        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors"
+        placeholder="Your full name"
+      />
+      <p class="text-xs text-red-500 mt-1 hidden" id="name-error">Please enter your name</p>
+    </div>
+
+    <!-- Phone -->
+    <div>
+      <label for="enquiry-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500" aria-hidden="true">*</span></label>
+      <input
+        type="tel"
+        id="enquiry-phone"
+        name="phone"
+        required
+        autocomplete="tel"
+        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors"
+        placeholder="+91 XXXXX XXXXX"
+      />
+      <p class="text-xs text-red-500 mt-1 hidden" id="phone-error">Please enter a valid phone number</p>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="enquiry-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500" aria-hidden="true">*</span></label>
+      <input
+        type="email"
+        id="enquiry-email"
+        name="email"
+        required
+        autocomplete="email"
+        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors"
+        placeholder="your@email.com"
+      />
+      <p class="text-xs text-red-500 mt-1 hidden" id="email-error">Please enter a valid email address</p>
+    </div>
+
+    <!-- Service -->
+    <div>
+      <label for="enquiry-service" class="block text-sm font-medium text-gray-700 mb-1">Service Required <span class="text-red-500" aria-hidden="true">*</span></label>
+      <select
+        id="enquiry-service"
+        name="service"
+        required
+        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors bg-white"
+      >
+        <option value="" disabled selected>Select a service</option>
+        {services.map((s) => (
+          <option value={s}>{s}</option>
+        ))}
+      </select>
+      <p class="text-xs text-red-500 mt-1 hidden" id="service-error">Please select a service</p>
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label for="enquiry-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+      <textarea
+        id="enquiry-message"
+        name="message"
+        rows="3"
+        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors resize-y"
+        placeholder="Brief description of your requirement..."
+      ></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button
+      type="submit"
+      class="w-full py-3 bg-navy text-white font-semibold rounded-lg hover:bg-blue transition-colors duration-200 shadow-sm hover:shadow-md text-sm"
+      id="enquiry-submit"
+    >
+      Send Enquiry
+    </button>
+    <p class="text-xs text-gray-500 text-center mt-2">
+      You can also call us directly at
+      <a href={BUSINESS.phoneHref} class="text-blue font-medium hover:underline">{BUSINESS.phone}</a>
+    </p>
+  </div>
+</form>
+
+<script define:vars={{ email: BUSINESS.email }}>
+  const form = document.getElementById('enquiry-form');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nameInput = /** @type {HTMLInputElement} */ (document.getElementById('enquiry-name'));
+    const phoneInput = /** @type {HTMLInputElement} */ (document.getElementById('enquiry-phone'));
+    const emailInput = /** @type {HTMLInputElement} */ (document.getElementById('enquiry-email'));
+    const serviceInput = /** @type {HTMLSelectElement} */ (document.getElementById('enquiry-service'));
+    const messageInput = /** @type {HTMLTextAreaElement} */ (document.getElementById('enquiry-message'));
+
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+    const emailError = document.getElementById('email-error');
+    const serviceError = document.getElementById('service-error');
+
+    let valid = true;
+
+    // Validate name
+    if (!nameInput?.value.trim()) {
+      nameError?.classList.remove('hidden');
+      nameInput?.classList.add('border-red-500');
+      valid = false;
+    } else {
+      nameError?.classList.add('hidden');
+      nameInput?.classList.remove('border-red-500');
+    }
+
+    // Validate phone
+    const phoneRegex = /^[+]?[\d\s\-()]{7,15}$/;
+    if (!phoneInput?.value.trim() || !phoneRegex.test(phoneInput.value.trim())) {
+      phoneError?.classList.remove('hidden');
+      phoneInput?.classList.add('border-red-500');
+      valid = false;
+    } else {
+      phoneError?.classList.add('hidden');
+      phoneInput?.classList.remove('border-red-500');
+    }
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailInput?.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+      emailError?.classList.remove('hidden');
+      emailInput?.classList.add('border-red-500');
+      valid = false;
+    } else {
+      emailError?.classList.add('hidden');
+      emailInput?.classList.remove('border-red-500');
+    }
+
+    // Validate service
+    if (!serviceInput?.value) {
+      serviceError?.classList.remove('hidden');
+      serviceInput?.classList.add('border-red-500');
+      valid = false;
+    } else {
+      serviceError?.classList.add('hidden');
+      serviceInput?.classList.remove('border-red-500');
+    }
+
+    if (!valid) return;
+
+    // Build mailto link
+    const subject = encodeURIComponent(`Consultation Enquiry — ${serviceInput?.value}`);
+    const body = encodeURIComponent(
+      `Name: ${nameInput?.value}\nPhone: ${phoneInput?.value}\nEmail: ${emailInput?.value}\nService: ${serviceInput?.value}\n\nMessage:\n${messageInput?.value || 'N/A'}`
+    );
+
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  });
+</script>
