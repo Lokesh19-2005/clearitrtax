@@ -1,8 +1,8 @@
 export const BUSINESS = {
   brandName: 'Clear ITR Tax',
-  legalName: 'Nettyam Associates',
+  legalName: 'Clear ITR Tax',
   tagline: 'Your Trusted Partner for Income Tax, GST & Business Compliance',
-  brandRelation: 'A service brand operated by Nettyam Associates',
+  brandRelation: 'Professional Income Tax, GST and Business Compliance Services',
   phone: '+91 9164268666',
   phoneHref: 'tel:+919164268666',
   email: 'clearitrtax@gmail.com',
@@ -22,9 +22,9 @@ export const BUSINESS = {
   fullAddress:
     'First Floor, 339, Khata No. 1350/339, Sri Venkateswara Nilayam, Bangalore–Bellary Road, Near Government Kannada Higher Primary School, Chikkajala, Bengaluru, Bengaluru Urban, Karnataka 562157, India',
   googleMapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Nettyam+Associates,+Sri+Venkateswara+Nilayam,+Chikkajala,+Bengaluru,+Karnataka+562157',
+    'https://www.google.com/maps/search/?api=1&query=Clear+ITR+Tax,+Sri+Venkateswara+Nilayam,+Chikkajala,+Bengaluru,+Karnataka+562157',
   googleMapsEmbed:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0!2d77.6!3d13.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNettyam+Associates+Sri+Venkateswara+Nilayam+Chikkajala+Bengaluru!5e0!3m2!1sen!2sin!4v1',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0!2d77.6!3d13.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sClear+ITR+Tax+Sri+Venkateswara+Nilayam+Chikkajala+Bengaluru!5e0!3m2!1sen!2sin!4v1',
   whatsappEnabled: true,
   whatsappUrl: 'https://wa.me/919164268666?text=Hi%2C%20I%20need%20help%20with%20Income%20Tax%20%2F%20GST%20filing.%20Please%20share%20details.',
   hours: 'Consultations by appointment. Please call or email before visiting.',
@@ -61,7 +61,7 @@ export const SEO = {
   about: {
     title: 'About Clear ITR Tax | Professional Tax & Business Advisory',
     description:
-      'Clear ITR Tax is a service brand operated by Nettyam Associates, offering Income Tax, GST, accounting, and business advisory services across India.',
+      'Clear ITR Tax offers Income Tax, GST, accounting, and business advisory services across India.',
   },
   contact: {
     title: 'Contact Clear ITR Tax | Book a Consultation',

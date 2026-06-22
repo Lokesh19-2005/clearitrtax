@@ -1,6 +1,6 @@
 # Clear ITR Tax — Website
 
-Static website for **Clear ITR Tax**, a service brand operated by **Nettyam Associates**, serving clients across India.
+Static website for **Clear ITR Tax**, serving clients across India.
 
 ## Tech Stack
 
@@ -125,4 +125,4 @@ The WhatsApp button is disabled by default. Set `whatsappEnabled: true` in `src/
 
 ## Licence
 
-Private — © 2026 Clear ITR Tax. Operated by Nettyam Associates.
+Private — © 2026 Clear ITR Tax.
