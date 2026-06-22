@@ -255,12 +255,12 @@ export const whyChooseUs = [
     icon: 'shield-check',
   },
   {
-    title: 'Expert Tax Support',
+    title: 'Expert Tax Professionals',
     description: 'Dedicated Income Tax and GST experts.',
     icon: 'message-circle',
   },
   {
-    title: 'Business Compliance Specialists',
+    title: 'Business Compliance Experts',
     description: 'End-to-end registrations and filings.',
     icon: 'users',
   },
@@ -275,7 +275,7 @@ export const whyChooseUs = [
     icon: 'globe',
   },
   {
-    title: 'Fast Turnaround',
+    title: 'Fast Response Time',
     description: 'Quick filing and compliance support.',
     icon: 'check-circle',
   },
