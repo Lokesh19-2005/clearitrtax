@@ -5,8 +5,8 @@ export const BUSINESS = {
   brandRelation: 'A service brand operated by Nettyam Associates',
   phone: '+91 9164268666',
   phoneHref: 'tel:+919164268666',
-  email: 'info@clearitrtax.com',
-  emailHref: 'mailto:info@clearitrtax.com',
+  email: 'clearitrtax@gmail.com',
+  emailHref: 'mailto:clearitrtax@gmail.com',
   address: {
     line1: 'First Floor, 339, Khata No. 1350/339',
     line2: 'Sri Venkateswara Nilayam',
@@ -66,6 +66,6 @@ export const SEO = {
   contact: {
     title: 'Contact Clear ITR Tax | Book a Consultation',
     description:
-      'Reach Clear ITR Tax for Income Tax, GST, and accounting services. Call +91 9164268666 or email info@clearitrtax.com.',
+      'Reach Clear ITR Tax for Income Tax, GST, and accounting services. Call +91 9164268666 or email clearitrtax@gmail.com.',
   },
 } as const;
