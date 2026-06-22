@@ -26,7 +26,7 @@ export const BUSINESS = {
   googleMapsEmbed:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0!2d77.6!3d13.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNettyam+Associates+Sri+Venkateswara+Nilayam+Chikkajala+Bengaluru!5e0!3m2!1sen!2sin!4v1',
   whatsappEnabled: true,
-  whatsappUrl: 'https://wa.me/919066868823',
+  whatsappUrl: 'https://wa.me/919066868823?text=Hi%2C%20I%20need%20help%20with%20Income%20Tax%20%2F%20GST%20filing.%20Please%20share%20details.',
   hours: 'Consultations by appointment. Please call or email before visiting.',
   siteUrl: 'https://clearitrtax.com',
 } as const;
