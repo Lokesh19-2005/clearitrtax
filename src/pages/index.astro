@@ -154,32 +154,127 @@ const clientIcons: Record<string, string> = {
             <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-3">Documents Required for Salaried Employees</h2>
             <p class="text-gray-600">To ensure a smooth and timely filing, please share the following details:</p>
           </div>
-          <div class="space-y-4 mb-8">
-            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
-              <span class="text-sm font-bold text-blue shrink-0">1.</span>
-              <span class="text-sm font-medium text-navy">Form-16 (Part A & Part B)</span>
+
+          <!-- Tax Info Form with file uploads -->
+          <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+            <input type="hidden" name="subject" value="New ITR Filing Request - Clear ITR Tax" />
+            <input type="hidden" name="from_name" value="Clear ITR Tax Website" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+            <!-- Row: Name + Number -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Name <span class="text-red-500">*</span></label>
+                <input type="text" name="Name" required placeholder="John" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Number <span class="text-red-500">*</span></label>
+                <input type="tel" name="Phone" required placeholder="1234567890" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
+              </div>
             </div>
-            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
-              <span class="text-sm font-bold text-blue shrink-0">2.</span>
-              <span class="text-sm font-medium text-navy">PAN Number</span>
+
+            <!-- Email -->
+            <div>
+              <label class="block text-xs font-semibold text-navy mb-1">Email <span class="text-red-500">*</span></label>
+              <input type="email" name="Email" required placeholder="john@mysite.com" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
             </div>
-            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
-              <span class="text-sm font-bold text-blue shrink-0">3.</span>
-              <span class="text-sm font-medium text-navy">Income Tax Portal Password</span>
+
+            <!-- Row: Father Name + Pincode -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Father Name</label>
+                <input type="text" name="Father Name" placeholder="Father Name" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Pincode</label>
+                <input type="text" name="Pincode" placeholder="Pincode" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
+              </div>
             </div>
-            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
-              <span class="text-sm font-bold text-blue shrink-0">4.</span>
-              <span class="text-sm font-medium text-navy">Any other investment proofs (if not in Form-16)</span>
+
+            <!-- Row: DOB + PAN -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Date of Birth</label>
+                <input type="date" name="Date of Birth" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">PAN Number <span class="text-red-500">*</span></label>
+                <input type="text" name="PAN Number" required placeholder="PAN number" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent uppercase" />
+              </div>
             </div>
-          </div>
-          <div class="text-center">
-            <p class="text-sm text-gray-600 mb-4">Please email the documents to <a href={BUSINESS.emailHref} class="text-blue font-semibold hover:underline">{BUSINESS.email}</a></p>
-            <a
-              href={BUSINESS.emailHref}
-              class="inline-flex items-center justify-center px-7 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-blue transition-colors shadow-sm"
-            >
-              Email Documents
-            </a>
+
+            <!-- Row: Password + Bank A/C -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Password</label>
+                <input type="text" name="IT Portal Password" placeholder="Password" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Bank A/C Number</label>
+                <input type="text" name="Bank Account" placeholder="Bank a/c number" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
+              </div>
+            </div>
+
+            <!-- Row: IFSC + Aadhar -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">IFSC Code</label>
+                <input type="text" name="IFSC Code" placeholder="IFSC Code" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent uppercase" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Aadhar Number</label>
+                <input type="text" name="Aadhar Number" placeholder="Aadhar Number" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent" />
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div>
+              <label class="block text-xs font-semibold text-navy mb-1">Address</label>
+              <textarea name="Address" rows="3" placeholder="Address" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent resize-y"></textarea>
+            </div>
+
+            <!-- File Upload -->
+            <div>
+              <label class="block text-xs font-semibold text-navy mb-1">Attachments (Form-16, Investment Proofs, etc.)</label>
+              <input type="file" name="attachment" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="w-full text-sm text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-light file:text-navy hover:file:bg-blue hover:file:text-white file:transition-colors file:cursor-pointer" />
+            </div>
+
+            <!-- Row: Mutual Fund + Form-16 attachment -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Mutual Fund</label>
+                <div class="flex items-center gap-4 py-1">
+                  <label class="flex items-center gap-1.5 text-sm cursor-pointer"><input type="radio" name="Mutual Fund" value="Yes" class="w-4 h-4 accent-navy" /> Yes</label>
+                  <label class="flex items-center gap-1.5 text-sm cursor-pointer"><input type="radio" name="Mutual Fund" value="No" checked class="w-4 h-4 accent-navy" /> No</label>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Form-16 Attachment</label>
+                <input type="file" name="Form 16" accept=".pdf,.jpg,.jpeg,.png" class="w-full text-sm text-gray-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-light file:text-navy hover:file:bg-blue hover:file:text-white file:transition-colors file:cursor-pointer" />
+              </div>
+            </div>
+
+            <!-- Row: P&L from Broker + File -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">Provide Tax P&L from Broker</label>
+                <div class="flex items-center gap-4 py-1">
+                  <label class="flex items-center gap-1.5 text-sm cursor-pointer"><input type="radio" name="Tax PnL from Broker" value="Yes" class="w-4 h-4 accent-navy" /> Yes</label>
+                  <label class="flex items-center gap-1.5 text-sm cursor-pointer"><input type="radio" name="Tax PnL from Broker" value="No" checked class="w-4 h-4 accent-navy" /> No</label>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-navy mb-1">File</label>
+                <input type="file" name="Broker PnL File" accept=".pdf,.jpg,.jpeg,.png,.xlsx,.csv" class="w-full text-sm text-gray-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-light file:text-navy hover:file:bg-blue hover:file:text-white file:transition-colors file:cursor-pointer" />
+              </div>
+            </div>
+
+            <!-- Send Button -->
+            <button type="submit" class="w-full py-3.5 bg-[#FF1F5A] text-white font-bold rounded-lg hover:bg-[#e6174f] active:bg-[#cc1447] transition-colors shadow-lg text-base mt-2">
+              Send
+            </button>
+          </form>
           </div>
         </div>
       </div>
