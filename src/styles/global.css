@@ -118,3 +118,21 @@ body {
     transition: none;
   }
 }
+
+/* ===== Safe area for iOS notch ===== */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ===== Mobile touch target minimum ===== */
+@media (max-width: 640px) {
+  a, button {
+    min-height: 44px;
+  }
+}
+
+/* ===== Mobile text overflow prevention ===== */
+.break-word {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
