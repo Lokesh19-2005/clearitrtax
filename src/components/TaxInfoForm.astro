@@ -2,157 +2,187 @@
 import { BUSINESS } from '../data/business';
 ---
 
-<form
-  action="https://api.web3forms.com/submit"
-  method="POST"
-  class="bg-navy rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10"
-  id="tax-info-form"
->
-  <!-- Web3Forms Access Key - Replace with your actual key from https://web3forms.com -->
-  <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-  <input type="hidden" name="subject" value="New Tax Filing Request - Clear ITR Tax" />
-  <input type="hidden" name="from_name" value="Clear ITR Tax Website" />
-  <input type="hidden" name="redirect" value="https://clearitrtax.vercel.app/contact/" />
-  <!-- Honeypot spam protection -->
-  <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+<div class="bg-navy rounded-2xl shadow-xl p-6 sm:p-8" id="contact-form-section">
+  <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">Contact Us</h3>
 
-  <h3 class="text-2xl font-bold text-white mb-2 text-center">Tax Information Form</h3>
-  <p class="text-sm text-blue-light/80 mb-8 text-center">Fill in your details and we'll handle your ITR filing</p>
-
-  <div class="space-y-5">
+  <form id="tax-info-form" class="space-y-4" enctype="multipart/form-data">
     <!-- Row: Name + Number -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 gap-3">
       <div>
-        <label for="ti-name" class="block text-xs font-semibold text-blue-light mb-1.5">Name <span class="text-red-400">*</span></label>
-        <input type="text" id="ti-name" name="Name" required placeholder="John" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+        <label class="block text-xs font-bold text-white mb-1">Name</label>
+        <input type="text" name="name" required placeholder="John" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400" />
       </div>
       <div>
-        <label for="ti-number" class="block text-xs font-semibold text-blue-light mb-1.5">Number <span class="text-red-400">*</span></label>
-        <input type="tel" id="ti-number" name="Phone Number" required placeholder="1234567890" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+        <label class="block text-xs font-bold text-white mb-1">Number</label>
+        <input type="tel" name="phone" required placeholder="1234567890" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400" />
       </div>
     </div>
 
     <!-- Email -->
     <div>
-      <label for="ti-email" class="block text-xs font-semibold text-blue-light mb-1.5">Email <span class="text-red-400">*</span></label>
-      <input type="email" id="ti-email" name="Email" required placeholder="john@mysite.com" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      <label class="block text-xs font-bold text-white mb-1">Email</label>
+      <input type="email" name="email" required placeholder="john@mysite.com" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400" />
     </div>
 
     <!-- Row: Father Name + Pincode -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 gap-3">
       <div>
-        <label for="ti-father" class="block text-xs font-semibold text-blue-light mb-1.5">Father Name</label>
-        <input type="text" id="ti-father" name="Father Name" placeholder="Father Name" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+        <label class="block text-xs font-bold text-white mb-1">Father Name</label>
+        <input type="text" name="fatherName" placeholder="Father Name" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400" />
       </div>
       <div>
-        <label for="ti-pincode" class="block text-xs font-semibold text-blue-light mb-1.5">Pincode</label>
-        <input type="text" id="ti-pincode" name="Pincode" placeholder="Pincode" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
-      </div>
-    </div>
-
-    <!-- Row: Date of Birth + PAN Number -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div>
-        <label for="ti-dob" class="block text-xs font-semibold text-blue-light mb-1.5">Date of Birth</label>
-        <input type="date" id="ti-dob" name="Date of Birth" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
-      </div>
-      <div>
-        <label for="ti-pan" class="block text-xs font-semibold text-blue-light mb-1.5">PAN Number <span class="text-red-400">*</span></label>
-        <input type="text" id="ti-pan" name="PAN Number" required placeholder="PAN Number" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors uppercase" />
+        <label class="block text-xs font-bold text-white mb-1">Pincode</label>
+        <input type="text" name="pincode" placeholder="Pincode" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400" />
       </div>
     </div>
 
-    <!-- Row: Password + Bank A/C Number -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <!-- Row: DOB + PAN -->
+    <div class="grid grid-cols-2 gap-3">
       <div>
-        <label for="ti-password" class="block text-xs font-semibold text-blue-light mb-1.5">IT Portal Password</label>
-        <input type="text" id="ti-password" name="IT Portal Password" placeholder="Password" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+        <label class="block text-xs font-bold text-white mb-1">Date of birth</label>
+        <input type="date" name="dob" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy" />
       </div>
       <div>
-        <label for="ti-bank" class="block text-xs font-semibold text-blue-light mb-1.5">Bank A/C Number</label>
-        <input type="text" id="ti-bank" name="Bank Account Number" placeholder="Bank a/c number" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+        <label class="block text-xs font-bold text-white mb-1">Pan number</label>
+        <input type="text" name="pan" placeholder="Pan number" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400 uppercase" />
       </div>
     </div>
 
-    <!-- Row: IFSC Code + Aadhar Number -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <!-- Row: Password + Bank a/c -->
+    <div class="grid grid-cols-2 gap-3">
       <div>
-        <label for="ti-ifsc" class="block text-xs font-semibold text-blue-light mb-1.5">IFSC Code</label>
-        <input type="text" id="ti-ifsc" name="IFSC Code" placeholder="IFSC Code" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors uppercase" />
+        <label class="block text-xs font-bold text-white mb-1">Password</label>
+        <input type="text" name="password" placeholder="Password" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400" />
       </div>
       <div>
-        <label for="ti-aadhar" class="block text-xs font-semibold text-blue-light mb-1.5">Aadhar Number</label>
-        <input type="text" id="ti-aadhar" name="Aadhar Number" placeholder="Aadhar Number" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+        <label class="block text-xs font-bold text-white mb-1">Bank a/c number</label>
+        <input type="text" name="bankAccount" placeholder="Bank a/c number" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400" />
+      </div>
+    </div>
+
+    <!-- Row: IFSC + Aadhar -->
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="block text-xs font-bold text-white mb-1">IFSC Code</label>
+        <input type="text" name="ifsc" placeholder="IFSC Code" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400 uppercase" />
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-white mb-1">Aadhar Number</label>
+        <input type="text" name="aadhar" placeholder="Aadhar Number" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400" />
       </div>
     </div>
 
     <!-- Address -->
     <div>
-      <label for="ti-address" class="block text-xs font-semibold text-blue-light mb-1.5">Address</label>
-      <textarea id="ti-address" name="Address" rows="3" placeholder="Address" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors resize-y"></textarea>
+      <label class="block text-xs font-bold text-white mb-1">Address</label>
+      <textarea name="address" rows="3" placeholder="Address" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy placeholder:text-gray-400 resize-y"></textarea>
     </div>
 
-    <!-- Row: Mutual Fund + P&L from Broker -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div>
-        <label class="block text-xs font-semibold text-blue-light mb-1.5">Mutual Fund</label>
-        <div class="flex items-center gap-4 py-2">
-          <label class="flex items-center gap-2 text-sm text-white cursor-pointer">
-            <input type="radio" name="Mutual Fund" value="Yes" class="w-4 h-4 accent-blue-accent" />
-            <span>Yes</span>
-          </label>
-          <label class="flex items-center gap-2 text-sm text-white cursor-pointer">
-            <input type="radio" name="Mutual Fund" value="No" checked class="w-4 h-4 accent-blue-accent" />
-            <span>No</span>
-          </label>
-        </div>
-      </div>
-      <div>
-        <label class="block text-xs font-semibold text-blue-light mb-1.5">Provide Tax P&L from Broker</label>
-        <div class="flex items-center gap-4 py-2">
-          <label class="flex items-center gap-2 text-sm text-white cursor-pointer">
-            <input type="radio" name="Tax PnL from Broker" value="Yes" class="w-4 h-4 accent-blue-accent" />
-            <span>Yes</span>
-          </label>
-          <label class="flex items-center gap-2 text-sm text-white cursor-pointer">
-            <input type="radio" name="Tax PnL from Broker" value="No" checked class="w-4 h-4 accent-blue-accent" />
-            <span>No</span>
-          </label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Service Type -->
+    <!-- Form-16 Yes/No + File -->
     <div>
-      <label for="ti-service" class="block text-xs font-semibold text-blue-light mb-1.5">Service Required</label>
-      <select id="ti-service" name="Service Required" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors">
-        <option value="ITR Filing" class="text-navy">ITR Filing</option>
-        <option value="GST Registration" class="text-navy">GST Registration</option>
-        <option value="GST Return Filing" class="text-navy">GST Return Filing</option>
-        <option value="Tax Planning" class="text-navy">Tax Planning</option>
-        <option value="NRI Filing" class="text-navy">NRI Filing</option>
-        <option value="Capital Gain" class="text-navy">Capital Gain</option>
-        <option value="Business Income" class="text-navy">Business Income</option>
-        <option value="Other" class="text-navy">Other</option>
+      <label class="block text-xs font-bold text-white mb-1">Form-16</label>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3">
+          <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="form16" value="yes" class="w-4 h-4" /> yes</label>
+          <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="form16" value="no" checked class="w-4 h-4" /> no</label>
+        </div>
+        <input type="file" name="form16File" accept=".pdf,.jpg,.jpeg,.png" class="text-xs text-white file:mr-2 file:py-1 file:px-3 file:rounded file:border file:border-white/40 file:text-xs file:bg-transparent file:text-white file:cursor-pointer" />
+      </div>
+    </div>
+
+    <!-- Mutual Fund Yes/No + Form 16 Upload -->
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="block text-xs font-bold text-white mb-1">Mutal fund</label>
+        <div class="flex items-center gap-3">
+          <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="mutualFund" value="yes" class="w-4 h-4" /> yes</label>
+          <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="mutualFund" value="no" checked class="w-4 h-4" /> no</label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-white mb-1">Form 16 Upload</label>
+        <input type="file" name="form16Upload" accept=".pdf,.jpg,.jpeg,.png" class="text-xs text-white file:mr-2 file:py-1 file:px-3 file:rounded file:border file:border-white/40 file:text-xs file:bg-transparent file:text-white file:cursor-pointer" />
+      </div>
+    </div>
+
+    <!-- Tax P&L + File -->
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="block text-xs font-bold text-white mb-1">Tax P&L</label>
+        <div class="flex items-center gap-3">
+          <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="taxPnl" value="yes" class="w-4 h-4" /> yes</label>
+          <label class="flex items-center gap-1.5 text-sm text-white cursor-pointer"><input type="radio" name="taxPnl" value="no" checked class="w-4 h-4" /> no</label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-white mb-1">&nbsp;</label>
+        <input type="file" name="taxPnlFile" accept=".pdf,.jpg,.jpeg,.png,.xlsx,.csv" class="text-xs text-white file:mr-2 file:py-1 file:px-3 file:rounded file:border file:border-white/40 file:text-xs file:bg-transparent file:text-white file:cursor-pointer" />
+      </div>
+    </div>
+
+    <!-- Broker Dropdown -->
+    <div>
+      <select name="broker" class="w-full px-3 py-2.5 bg-white border-0 rounded text-sm text-navy">
+        <option value="Angel One">Angel One</option>
+        <option value="Zerodha">Zerodha</option>
+        <option value="Groww">Groww</option>
+        <option value="Upstox">Upstox</option>
+        <option value="ICICI Direct">ICICI Direct</option>
+        <option value="HDFC Securities">HDFC Securities</option>
+        <option value="Other">Other</option>
+        <option value="None">None</option>
       </select>
     </div>
 
-    <!-- Message -->
-    <div>
-      <label for="ti-message" class="block text-xs font-semibold text-blue-light mb-1.5">Additional Message</label>
-      <textarea id="ti-message" name="Message" rows="2" placeholder="Any additional information..." class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors resize-y"></textarea>
-    </div>
-
-    <!-- Submit -->
+    <!-- Send Button -->
     <button
       type="submit"
-      class="w-full py-3.5 bg-[#FF1F5A] text-white font-bold rounded-lg hover:bg-[#e6174f] active:bg-[#cc1447] transition-colors duration-200 shadow-lg text-base mt-2"
+      class="w-full py-3.5 bg-[#FF1F5A] text-white font-bold rounded-lg hover:bg-[#e6174f] active:bg-[#cc1447] transition-colors shadow-lg text-base"
+      id="tax-form-submit"
     >
       Send
     </button>
+  </form>
 
-    <p class="text-xs text-blue-light/60 text-center mt-3">
-      Your information is secure and will only be used for tax filing purposes.
-    </p>
+  <!-- Success message (hidden by default) -->
+  <div id="form-success" class="hidden text-center py-8">
+    <svg class="w-16 h-16 text-green-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    <p class="text-white text-lg font-semibold">Form Submitted Successfully!</p>
+    <p class="text-blue-light/80 text-sm mt-2">We'll get back to you shortly.</p>
   </div>
-</form>
+</div>
+
+<script>
+  const form = document.getElementById('tax-info-form');
+  const successMsg = document.getElementById('form-success');
+  const submitBtn = document.getElementById('tax-form-submit');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        form.classList.add('hidden');
+        successMsg?.classList.remove('hidden');
+      } else {
+        alert('Something went wrong. Please try again or call us directly.');
+        submitBtn.textContent = 'Send';
+        submitBtn.disabled = false;
+      }
+    } catch (error) {
+      alert('Network error. Please try again or call us directly.');
+      submitBtn.textContent = 'Send';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
