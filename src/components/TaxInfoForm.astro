@@ -1,0 +1,158 @@
+---
+import { BUSINESS } from '../data/business';
+---
+
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class="bg-navy rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10"
+  id="tax-info-form"
+>
+  <!-- Web3Forms Access Key - Replace with your actual key from https://web3forms.com -->
+  <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+  <input type="hidden" name="subject" value="New Tax Filing Request - Clear ITR Tax" />
+  <input type="hidden" name="from_name" value="Clear ITR Tax Website" />
+  <input type="hidden" name="redirect" value="https://clearitrtax.vercel.app/contact/" />
+  <!-- Honeypot spam protection -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+  <h3 class="text-2xl font-bold text-white mb-2 text-center">Tax Information Form</h3>
+  <p class="text-sm text-blue-light/80 mb-8 text-center">Fill in your details and we'll handle your ITR filing</p>
+
+  <div class="space-y-5">
+    <!-- Row: Name + Number -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="ti-name" class="block text-xs font-semibold text-blue-light mb-1.5">Name <span class="text-red-400">*</span></label>
+        <input type="text" id="ti-name" name="Name" required placeholder="John" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      </div>
+      <div>
+        <label for="ti-number" class="block text-xs font-semibold text-blue-light mb-1.5">Number <span class="text-red-400">*</span></label>
+        <input type="tel" id="ti-number" name="Phone Number" required placeholder="1234567890" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="ti-email" class="block text-xs font-semibold text-blue-light mb-1.5">Email <span class="text-red-400">*</span></label>
+      <input type="email" id="ti-email" name="Email" required placeholder="john@mysite.com" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+    </div>
+
+    <!-- Row: Father Name + Pincode -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="ti-father" class="block text-xs font-semibold text-blue-light mb-1.5">Father Name</label>
+        <input type="text" id="ti-father" name="Father Name" placeholder="Father Name" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      </div>
+      <div>
+        <label for="ti-pincode" class="block text-xs font-semibold text-blue-light mb-1.5">Pincode</label>
+        <input type="text" id="ti-pincode" name="Pincode" placeholder="Pincode" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      </div>
+    </div>
+
+    <!-- Row: Date of Birth + PAN Number -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="ti-dob" class="block text-xs font-semibold text-blue-light mb-1.5">Date of Birth</label>
+        <input type="date" id="ti-dob" name="Date of Birth" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      </div>
+      <div>
+        <label for="ti-pan" class="block text-xs font-semibold text-blue-light mb-1.5">PAN Number <span class="text-red-400">*</span></label>
+        <input type="text" id="ti-pan" name="PAN Number" required placeholder="PAN Number" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors uppercase" />
+      </div>
+    </div>
+
+    <!-- Row: Password + Bank A/C Number -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="ti-password" class="block text-xs font-semibold text-blue-light mb-1.5">IT Portal Password</label>
+        <input type="text" id="ti-password" name="IT Portal Password" placeholder="Password" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      </div>
+      <div>
+        <label for="ti-bank" class="block text-xs font-semibold text-blue-light mb-1.5">Bank A/C Number</label>
+        <input type="text" id="ti-bank" name="Bank Account Number" placeholder="Bank a/c number" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      </div>
+    </div>
+
+    <!-- Row: IFSC Code + Aadhar Number -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="ti-ifsc" class="block text-xs font-semibold text-blue-light mb-1.5">IFSC Code</label>
+        <input type="text" id="ti-ifsc" name="IFSC Code" placeholder="IFSC Code" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors uppercase" />
+      </div>
+      <div>
+        <label for="ti-aadhar" class="block text-xs font-semibold text-blue-light mb-1.5">Aadhar Number</label>
+        <input type="text" id="ti-aadhar" name="Aadhar Number" placeholder="Aadhar Number" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors" />
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div>
+      <label for="ti-address" class="block text-xs font-semibold text-blue-light mb-1.5">Address</label>
+      <textarea id="ti-address" name="Address" rows="3" placeholder="Address" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors resize-y"></textarea>
+    </div>
+
+    <!-- Row: Mutual Fund + P&L from Broker -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs font-semibold text-blue-light mb-1.5">Mutual Fund</label>
+        <div class="flex items-center gap-4 py-2">
+          <label class="flex items-center gap-2 text-sm text-white cursor-pointer">
+            <input type="radio" name="Mutual Fund" value="Yes" class="w-4 h-4 accent-blue-accent" />
+            <span>Yes</span>
+          </label>
+          <label class="flex items-center gap-2 text-sm text-white cursor-pointer">
+            <input type="radio" name="Mutual Fund" value="No" checked class="w-4 h-4 accent-blue-accent" />
+            <span>No</span>
+          </label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-blue-light mb-1.5">Provide Tax P&L from Broker</label>
+        <div class="flex items-center gap-4 py-2">
+          <label class="flex items-center gap-2 text-sm text-white cursor-pointer">
+            <input type="radio" name="Tax PnL from Broker" value="Yes" class="w-4 h-4 accent-blue-accent" />
+            <span>Yes</span>
+          </label>
+          <label class="flex items-center gap-2 text-sm text-white cursor-pointer">
+            <input type="radio" name="Tax PnL from Broker" value="No" checked class="w-4 h-4 accent-blue-accent" />
+            <span>No</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Type -->
+    <div>
+      <label for="ti-service" class="block text-xs font-semibold text-blue-light mb-1.5">Service Required</label>
+      <select id="ti-service" name="Service Required" class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors">
+        <option value="ITR Filing" class="text-navy">ITR Filing</option>
+        <option value="GST Registration" class="text-navy">GST Registration</option>
+        <option value="GST Return Filing" class="text-navy">GST Return Filing</option>
+        <option value="Tax Planning" class="text-navy">Tax Planning</option>
+        <option value="NRI Filing" class="text-navy">NRI Filing</option>
+        <option value="Capital Gain" class="text-navy">Capital Gain</option>
+        <option value="Business Income" class="text-navy">Business Income</option>
+        <option value="Other" class="text-navy">Other</option>
+      </select>
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label for="ti-message" class="block text-xs font-semibold text-blue-light mb-1.5">Additional Message</label>
+      <textarea id="ti-message" name="Message" rows="2" placeholder="Any additional information..." class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-accent focus:border-blue-accent transition-colors resize-y"></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button
+      type="submit"
+      class="w-full py-3.5 bg-[#FF1F5A] text-white font-bold rounded-lg hover:bg-[#e6174f] active:bg-[#cc1447] transition-colors duration-200 shadow-lg text-base mt-2"
+    >
+      Send
+    </button>
+
+    <p class="text-xs text-blue-light/60 text-center mt-3">
+      Your information is secure and will only be used for tax filing purposes.
+    </p>
+  </div>
+</form>

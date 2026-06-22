@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactForm from '../components/ContactForm.astro';
+import TaxInfoForm from '../components/TaxInfoForm.astro';
 import MapEmbed from '../components/MapEmbed.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { BUSINESS, SEO } from '../data/business';
@@ -113,6 +114,13 @@ import { BUSINESS, SEO } from '../data/business';
           <ContactForm />
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== TAX INFORMATION FORM ===== -->
+  <section class="py-12 lg:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <TaxInfoForm />
     </div>
   </section>
 
