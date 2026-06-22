@@ -81,23 +81,48 @@ import { BUSINESS } from '../data/business';
 </style>
 
 <script>
-  function initWhatsAppTooltip() {
-    const tooltip = document.getElementById('whatsapp-tooltip');
-    const closeBtn = document.getElementById('close-whatsapp-tooltip');
-    if (!tooltip || !closeBtn) return;
-    const isDismissed = localStorage.getItem('whatsapp_tooltip_dismissed') === 'true';
-    if (!isDismissed) {
-      const timeoutId = setTimeout(() => { tooltip.classList.add('show-tooltip'); }, 2500);
+  (function() {
+    let initialized = false;
+    
+    function initWhatsAppTooltip() {
+      if (initialized) return;
+      initialized = true;
+      
+      const tooltip = document.getElementById('whatsapp-tooltip');
+      const closeBtn = document.getElementById('close-whatsapp-tooltip');
+      if (!tooltip || !closeBtn) return;
+      
+      // If already dismissed, don't show anything
+      const isDismissed = localStorage.getItem('whatsapp_tooltip_dismissed') === 'true';
+      if (isDismissed) return;
+      
+      // Show tooltip once after 3 seconds, then auto-hide after 6 seconds
+      const showTimeout = setTimeout(() => {
+        tooltip.classList.add('show-tooltip');
+        // Auto-dismiss after 6 seconds
+        setTimeout(() => {
+          tooltip.classList.remove('show-tooltip');
+          tooltip.classList.add('dismissed');
+          localStorage.setItem('whatsapp_tooltip_dismissed', 'true');
+        }, 6000);
+      }, 3000);
+      
+      // Manual dismiss on close button click
       closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        clearTimeout(timeoutId);
+        clearTimeout(showTimeout);
         tooltip.classList.remove('show-tooltip');
         tooltip.classList.add('dismissed');
         localStorage.setItem('whatsapp_tooltip_dismissed', 'true');
       });
     }
-  }
-  document.addEventListener('astro:page-load', initWhatsAppTooltip);
-  initWhatsAppTooltip();
+    
+    // Run once when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initWhatsAppTooltip);
+    } else {
+      initWhatsAppTooltip();
+    }
+  })();
 </script>
