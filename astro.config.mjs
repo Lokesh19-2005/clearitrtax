@@ -5,7 +5,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://www.clearitrtax.in',
+  output: 'static',
+  site: process.env.SITE_URL || 'https://clearitrtax.com',
   vite: {
     plugins: [tailwindcss()],
   },

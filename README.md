@@ -1,6 +1,6 @@
 # Clear ITR Tax — Website
 
-Static website for **Clear ITR Tax**, a customer-facing tax and business advisory brand by **Nettyam Associates**, based in Chikkajala, Bengaluru.
+Static website for **Clear ITR Tax**, a service brand operated by **Nettyam Associates**, serving clients across India.
 
 ## Tech Stack
 
@@ -52,7 +52,7 @@ This site generates fully static output. Deploy the `dist/` folder to any static
 Set the `SITE_URL` environment variable before building for production:
 
 ```bash
-SITE_URL=https://www.clearitrtax.in npm run build
+SITE_URL=https://clearitrtax.com npm run build
 ```
 
 Or update the fallback value in `astro.config.mjs`.
@@ -125,5 +125,4 @@ The WhatsApp button is disabled by default. Set `whatsappEnabled: true` in `src/
 
 ## Licence
 
-Private — © Nettyam Associates
-# GITAX-
+Private — © 2026 Clear ITR Tax. Operated by Nettyam Associates.

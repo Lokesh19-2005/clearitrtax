@@ -24,6 +24,8 @@ const whyIcons: Record<string, string> = {
   'shield-check': `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
   'message-circle': `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>`,
   users: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>`,
+  lock: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>`,
+  globe: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>`,
   'check-circle': `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
 };
 
@@ -47,7 +49,6 @@ const clientIcons: Record<string, string> = {
 >
   <!-- ===== HERO SECTION ===== -->
   <section class="relative overflow-hidden bg-gradient-to-br from-navy via-blue to-blue-accent">
-    <!-- Decorative pattern -->
     <div class="absolute inset-0 opacity-5">
       <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -60,39 +61,34 @@ const clientIcons: Record<string, string> = {
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
       <div class="max-w-3xl">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-6">
-          Clear Taxes.<br />
-          <span class="text-blue-light">Confident Business.</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-4">
+          Clear ITR Tax
         </h1>
-        <p class="text-lg lg:text-xl text-blue-light/90 mb-4 max-w-2xl leading-relaxed">
-          Professional Income Tax, GST, accounting, registration, and business advisory services for individuals and growing businesses in Bengaluru.
+        <p class="text-xl lg:text-2xl text-blue-light font-semibold mb-4">
+          Your Trusted Partner for Income Tax, GST & Business Compliance
         </p>
-        <p class="flex items-center gap-2 text-sm text-blue-light/70 mb-8">
-          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          Compliance-focused guidance &bull; Timely filings &bull; Practical business support
+        <p class="text-lg text-blue-light/90 mb-8 max-w-2xl leading-relaxed">
+          Professional tax filing, GST compliance, registrations, advisory, and financial services for individuals, professionals, startups, NRIs, and businesses across India.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 mb-6">
           <a
             href="/contact/"
             class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-navy font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-base"
-            id="hero-cta-primary"
           >
-            Book a Consultation
+            File ITR Now
           </a>
           <a
-            href="#services-overview"
+            href="/gst-services/"
             class="inline-flex items-center justify-center px-7 py-3.5 border-2 border-white/40 text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-base"
-            id="hero-cta-secondary"
           >
-            Explore Our Services
+            GST Services
           </a>
-        </div>
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
-          <a href={BUSINESS.phoneHref} class="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            {BUSINESS.phone}
+          <a
+            href={BUSINESS.phoneHref}
+            class="inline-flex items-center justify-center px-7 py-3.5 bg-success text-white font-semibold rounded-lg hover:bg-success/90 transition-all text-base"
+          >
+            Talk to Expert
           </a>
-          <span class="text-xs text-white/50">Serving Chikkajala, Bengaluru and clients across India</span>
         </div>
       </div>
     </div>
@@ -132,9 +128,9 @@ const clientIcons: Record<string, string> = {
       <div class="text-center mb-12 scroll-reveal">
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-3">Why Choose Clear ITR Tax</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {whyChooseUs.map((item) => (
-          <div class="text-center p-6 rounded-xl scroll-reveal">
+          <div class="text-center p-6 rounded-xl border border-gray-100 bg-bg-soft scroll-reveal">
             <div class="w-14 h-14 bg-success/10 rounded-xl flex items-center justify-center text-success mx-auto mb-4">
               <Fragment set:html={whyIcons[item.icon]} />
             </div>
@@ -142,6 +138,90 @@ const clientIcons: Record<string, string> = {
             <p class="text-sm text-gray-600 leading-relaxed">{item.description}</p>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SALARY EMPLOYEE DOCUMENTS SECTION ===== -->
+  <section class="py-16 lg:py-24 bg-bg-soft">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto scroll-reveal">
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 lg:p-10">
+          <div class="text-center mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-3">Documents Required For Salaried Employees</h2>
+            <p class="text-gray-600">To ensure smooth and timely filing, please share the following:</p>
+          </div>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+              <svg class="w-5 h-5 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm font-medium text-navy">Form 16 (Part A & Part B)</span>
+            </div>
+            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+              <svg class="w-5 h-5 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm font-medium text-navy">PAN Number</span>
+            </div>
+            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+              <svg class="w-5 h-5 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm font-medium text-navy">Income Tax Portal Password</span>
+            </div>
+            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+              <svg class="w-5 h-5 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm font-medium text-navy">Investment Proofs (if not reflected in Form 16)</span>
+            </div>
+          </div>
+          <div class="text-center">
+            <p class="text-sm text-gray-600 mb-4">Submit documents to: <a href={BUSINESS.emailHref} class="text-blue font-semibold hover:underline">{BUSINESS.email}</a></p>
+            <a
+              href={BUSINESS.emailHref}
+              class="inline-flex items-center justify-center px-7 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-blue transition-colors shadow-sm"
+            >
+              Submit Documents
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GST CERTIFICATE & TRUST SECTION ===== -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-reveal">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-3">GST Registered & Verified Business</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="scroll-reveal">
+          <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-200 max-w-md mx-auto">
+            <img
+              src="/images/storefront.jpg"
+              alt="Clear ITR Tax GST Registration Certificate"
+              class="w-full h-auto object-cover"
+              loading="lazy"
+              width="600"
+              height="400"
+            />
+          </div>
+        </div>
+        <div class="scroll-reveal">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+              <svg class="w-6 h-6 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              <span class="font-semibold text-navy">GST Registered</span>
+            </div>
+            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+              <svg class="w-6 h-6 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="font-semibold text-navy">Verified Business</span>
+            </div>
+            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+              <svg class="w-6 h-6 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="font-semibold text-navy">Professional Tax Consultancy</span>
+            </div>
+            <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100">
+              <svg class="w-6 h-6 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <span class="font-semibold text-navy">Secure Service Provider</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -193,15 +273,44 @@ const clientIcons: Record<string, string> = {
     </div>
   </section>
 
-  <!-- ===== FEATURED HIGHLIGHTS ===== -->
+  <!-- ===== OFFICE GALLERY ===== -->
   <section class="py-16 lg:py-24 bg-bg-soft">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-reveal">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-3">Our Office & Professional Infrastructure</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal">
+        <div class="group relative rounded-2xl overflow-hidden shadow-md border border-gray-200 aspect-[4/3]">
+          <img src="/images/storefront.jpg" alt="Clear ITR Tax Office" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="600" height="450" />
+          <div class="absolute inset-0 bg-navy/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="text-white font-semibold text-sm">Office Exterior</span>
+          </div>
+        </div>
+        <div class="group relative rounded-2xl overflow-hidden shadow-md border border-gray-200 aspect-[4/3]">
+          <img src="/images/visiting-card.jpg" alt="Clear ITR Tax Business Card" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="600" height="450" />
+          <div class="absolute inset-0 bg-navy/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="text-white font-semibold text-sm">Business Card</span>
+          </div>
+        </div>
+        <div class="group relative rounded-2xl overflow-hidden shadow-md border border-gray-200 aspect-[4/3]">
+          <img src="/images/logo.jpg" alt="Clear ITR Tax Logo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="600" height="450" />
+          <div class="absolute inset-0 bg-navy/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="text-white font-semibold text-sm">Brand Logo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED HIGHLIGHTS ===== -->
+  <section class="py-16 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 scroll-reveal">
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-3">Services at a Glance</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {featuredHighlights.map((highlight) => (
-          <div class="flex items-center gap-3 bg-white rounded-lg px-5 py-4 border border-gray-100 scroll-reveal">
+          <div class="flex items-center gap-3 bg-bg-soft rounded-lg px-5 py-4 border border-gray-100 scroll-reveal">
             <svg class="w-5 h-5 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             <span class="text-sm font-medium text-navy">{highlight}</span>
           </div>
@@ -213,7 +322,7 @@ const clientIcons: Record<string, string> = {
   <!-- ===== CONSULTATION CTA ===== -->
   <ConsultationCTA />
 
-  <!-- ===== CONTACT PREVIEW ===== -->
+  <!-- ===== VISIT OUR OFFICE / MAP ===== -->
   <section class="py-16 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 scroll-reveal">
@@ -226,6 +335,7 @@ const clientIcons: Record<string, string> = {
               <svg class="w-5 h-5 text-blue mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               <div>
                 <p class="font-semibold text-navy">{BUSINESS.brandName}</p>
+                <p class="text-sm text-gray-500 mb-2">Operated by Nettyam Associates</p>
                 <p class="text-sm text-gray-600">{BUSINESS.address.line1}</p>
                 <p class="text-sm text-gray-600">{BUSINESS.address.line2}</p>
                 <p class="text-sm text-gray-600">{BUSINESS.address.line3}</p>

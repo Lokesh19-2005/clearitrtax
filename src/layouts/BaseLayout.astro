@@ -24,6 +24,7 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={SEO.home.keywords} />
     <meta name="theme-color" content="#073B77" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -48,45 +49,81 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
     <meta name="twitter:image" content={ogImageUrl} />
     <title>{title}</title>
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": BUSINESS.brandName,
-      "legalName": BUSINESS.legalName,
-      "description": "Income Tax, GST, Accounting, Business Registration, and Advisory Services",
-      "url": siteUrl,
-      "logo": `${siteUrl}/images/logo.png`,
-      "image": ogImageUrl,
-      "telephone": BUSINESS.phone,
-      "email": BUSINESS.email,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": `${BUSINESS.address.line1}, ${BUSINESS.address.line2}, ${BUSINESS.address.line3}, ${BUSINESS.address.line4}`,
-        "addressLocality": BUSINESS.address.locality,
-        "addressRegion": BUSINESS.address.state,
-        "postalCode": BUSINESS.address.pin,
-        "addressCountry": "IN"
+    <script type="application/ld+json" set:html={JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "AccountingService",
+        "name": BUSINESS.brandName,
+        "legalName": BUSINESS.legalName,
+        "description": "Professional Income Tax Filing, GST Compliance, Business Registration, NRI Taxation, MSME Registration, ROC Filings and Virtual CFO Services across India.",
+        "url": siteUrl,
+        "logo": `${siteUrl}/images/logo.png`,
+        "image": ogImageUrl,
+        "telephone": BUSINESS.phone,
+        "email": BUSINESS.email,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": `${BUSINESS.address.line1}, ${BUSINESS.address.line2}, ${BUSINESS.address.line3}, ${BUSINESS.address.line4}`,
+          "addressLocality": BUSINESS.address.locality,
+          "addressRegion": BUSINESS.address.state,
+          "postalCode": BUSINESS.address.pin,
+          "addressCountry": "IN"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Bengaluru" },
+          { "@type": "Country", "name": "India" }
+        ],
+        "serviceType": [
+          "Income Tax Filing",
+          "GST Registration",
+          "GST Return Filing",
+          "Business Registration",
+          "MSME Registration",
+          "NRI Taxation",
+          "Virtual CFO",
+          "ROC Filing"
+        ]
       },
-      "areaServed": [
-        { "@type": "City", "name": "Bengaluru" },
-        { "@type": "Country", "name": "India" }
-      ],
-      "serviceType": [
-        "Income Tax Consultant",
-        "GST Consultant",
-        "Accounting Services",
-        "Business Registration",
-        "Tax Advisory"
-      ],
-      "knowsAbout": [
-        "Income Tax Return Filing",
-        "GST Registration",
-        "GST Returns",
-        "TDS Compliance",
-        "Business Advisory",
-        "Bookkeeping"
-      ]
-    })} />
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": BUSINESS.brandName,
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": BUSINESS.legalName
+        },
+        "url": siteUrl,
+        "email": BUSINESS.email,
+        "telephone": BUSINESS.phone
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": BUSINESS.brandName,
+        "url": siteUrl,
+        "email": BUSINESS.email,
+        "telephone": BUSINESS.phone,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": `${BUSINESS.address.line1}, ${BUSINESS.address.line2}`,
+          "addressLocality": BUSINESS.address.city,
+          "addressRegion": BUSINESS.address.state,
+          "postalCode": BUSINESS.address.pin,
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": BUSINESS.brandName,
+        "legalName": BUSINESS.legalName,
+        "url": siteUrl,
+        "logo": `${siteUrl}/images/logo.png`,
+        "email": BUSINESS.email,
+        "telephone": BUSINESS.phone,
+        "sameAs": []
+      }
+    ])} />
   </head>
   <body class="min-h-screen flex flex-col">
     <a href="#main-content" class="skip-link">Skip to main content</a>
